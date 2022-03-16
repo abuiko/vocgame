@@ -1,67 +1,8 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
+import { Container, Form, Text, Button, Result, Row, Left, Right, Icons } from './InputElements'
 
-const Container = styled.div`
-    min-height: 100vh;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 600px;
-    margin: auto;
-`
-const Form = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
-const Text = styled.input`
-    margin-right: 10px;
-    padding: 10px 10px 10px 2px;
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
-    font-size: 16px;
-`
-
-const Button = styled.button`
-    width: 100px;
-    padding: 10px;
-    border: 1px solid #000;
-    color: white;
-    
-    background: #000;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-        background: #fff;
-        color: #000;
-    }
-`
-
-const Result = styled.div`
-    width: 100%;
-    margin-top: 50px;
-`
-
-const Row = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 15px 0px;
-   
-`
-const Left = styled.div``
-const Right = styled.div``
-
-const Icons = styled.div`
-    font-size: 22px;
-`
 
 const InputForm = () => {
     const [word, setWord] = useState("")
@@ -86,6 +27,10 @@ const InputForm = () => {
             setResults([...results, obj]);
         }
     }
+    const deleteResult = (e, id) => {
+        e.preventDefault();
+        setResults(results.filter((item) => item.id != id));
+    };
 
     return (
         <Container>
@@ -115,7 +60,7 @@ const InputForm = () => {
                             <Right>{item.translation}</Right>
                             <Icons>
                                 <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "green" }} />
-                                <AiOutlineDelete style={{ cursor: "pointer", color: "red" }} />
+                                <AiOutlineDelete style={{ cursor: "pointer", color: "red" }} onClick={(e) => deleteResult(e, item.id)} />
                             </Icons>
                         </Row>
                     ))
