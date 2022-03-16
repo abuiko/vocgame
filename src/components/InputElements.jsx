@@ -61,3 +61,20 @@ export const Right = styled.div``
 export const Icons = styled.div`
     font-size: 22px;
 `
+export const Wrapper = styled.div``
+export const Submit = styled.button`
+    width: 100px;
+    padding: 10px;
+    border: 1px solid green;
+    color: white;
+
+    background: green;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background: #fff;
+        color: green;
+    }
+`

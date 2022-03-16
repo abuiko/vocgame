@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
-import { Container, Form, Text, Button, Result, Row, Left, Right, Icons } from './InputElements'
+import { Container, Form, Text, Button, Result, Row, Left, Right, Icons, Wrapper, Submit } from './InputElements'
 
 
 const InputForm = () => {
@@ -15,10 +15,14 @@ const InputForm = () => {
     const handleTranslation = (e) => {
         setTranslation(e.target.value);
     };
+
+    // local storage
+    let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+    console.log(existingEntries)
+
     const addResult = () => {
 
         if (word !== "" && translation !== "") {
-            let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
             if (existingEntries == null) existingEntries = [];
 
             const obj = {
@@ -36,8 +40,10 @@ const InputForm = () => {
         }
     }
     const deleteResult = (e, id) => {
-        e.preventDefault();
-        setResults(results.filter((item) => item.id != id));
+        e.preventDefault()
+        const obj = existingEntries.filter(item => item.id != id)
+        localStorage.setItem("allEntries", JSON.stringify(obj));
+        setResults(results.filter((item) => item.id != id))
     };
 
     return (
@@ -60,9 +66,9 @@ const InputForm = () => {
                 <Button onClick={addResult}>ADD</Button>
             </Form>
 
-            {results !== [] ? (
+            {existingEntries !== [] ? (
                 <Result>
-                    {results.map(item => (
+                    {existingEntries.map(item => (
                         <Row key={item.id}>
                             <Left>{item.word}</Left>
                             <Right>{item.translation}</Right>
@@ -75,6 +81,13 @@ const InputForm = () => {
                     }
                 </Result>
             ) : null}
+            {existingEntries !== [] ? (
+                <Wrapper>
+                    <Submit>PLAY</Submit>
+                </Wrapper>
+            ) : null}
+
+
 
 
         </Container>
