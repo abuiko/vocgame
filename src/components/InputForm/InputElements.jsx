@@ -1,6 +1,6 @@
 
 import styled from 'styled-components'
-import image from '../assets/bg.jpg'
+import image from '../../assets/bg.jpg'
 
 export const Wrapper = styled.div`
     background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url(${image});
@@ -46,7 +46,8 @@ export const Button = styled.button`
     border: 1px solid #8E3FFF;
     color: white;
     font-size: 16px;
-    background: #8E3FFF;
+    background: rgb(142,63,255);
+    background: linear-gradient(48deg, rgba(142,63,255,1) 34%, rgba(0,219,255,1) 190%);
     cursor: pointer;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
@@ -85,6 +86,7 @@ export const Right = styled.div``
 
 export const Icons = styled.div`
     font-size: 22px;
+    
 `
 
 export const Submit = styled.button`
@@ -94,7 +96,8 @@ export const Submit = styled.button`
     color: #fff;
     font-size: 16px;
 
-    background: #8E3FFF;
+    background: rgb(142,63,255);
+background: linear-gradient(48deg, rgba(142,63,255,1) 34%, rgba(0,219,255,1) 190%);
     cursor: pointer;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;

@@ -84,7 +84,7 @@ const InputForm = () => {
                         }
                     </Result>
                 ) : null}
-                {existingEntries.length > 0 ? <Submit>PLAY</Submit> : null}
+                {existingEntries.length > 0 ? <Submit>START GAME</Submit> : null}
             </Container>
         </Wrapper>
 
