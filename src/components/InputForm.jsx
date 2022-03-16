@@ -18,13 +18,21 @@ const InputForm = () => {
     const addResult = () => {
 
         if (word !== "" && translation !== "") {
+            let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+            if (existingEntries == null) existingEntries = [];
+
             const obj = {
                 id: Math.floor(Math.random() * 1000),
                 word: word,
                 translation: translation,
             };
+            localStorage.setItem("entry", JSON.stringify(obj));
+            // Save allEntries back to local storage
+            existingEntries.push(obj);
+            localStorage.setItem("allEntries", JSON.stringify(existingEntries));
 
             setResults([...results, obj]);
+
         }
     }
     const deleteResult = (e, id) => {
