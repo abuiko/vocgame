@@ -1,17 +1,30 @@
 
 import styled from 'styled-components'
+import image from '../assets/bg.jpg'
 
-
+export const Wrapper = styled.div`
+    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url(${image});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+`
 export const Container = styled.div`
+    
+    width: 650px;
+    margin: auto;
     min-height: 100vh;   
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 600px;
-    margin: auto;
+   
 `
 export const Form = styled.div`
+    background: rgba(0,0,0,0.7);
+    border: none;
+    border-radius: 10px;
+    padding: 50px 35px;
+    box-sizing: border-box;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -19,40 +32,52 @@ export const Form = styled.div`
 `
 export const Text = styled.input`
     margin-right: 10px;
-    padding: 10px 10px 10px 2px;
+    padding: 10px;
     border: none;
-    border-bottom: 1px solid black;
     outline: none;
     font-size: 16px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 3px;
 `
 
 export const Button = styled.button`
-    width: 100px;
+    width: 120px;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #8E3FFF;
     color: white;
-    
-    background: #000;
+    font-size: 16px;
+    background: #8E3FFF;
     cursor: pointer;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-        background: #fff;
-        color: #000;
+        background: transparent;
+        color: #fff;
+        border: 1px solid #fff;
     }
 `
 
 export const Result = styled.div`
     width: 100%;
     margin-top: 50px;
+    margin-bottom: 50px;  
+   
 `
 
 export const Row = styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
-    padding: 15px 0px;
+    padding: 15px 40px;
+    box-sizing: border-box; 
+    background: rgba(0,0,0,0.7);
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    
    
 `
 export const Left = styled.div``
@@ -63,18 +88,20 @@ export const Icons = styled.div`
 `
 
 export const Submit = styled.button`
-    width: 100px;
+    width: 150px;
     padding: 10px;
-    border: 1px solid green;
-    color: white;
+    border: 1px solid #8E3FFF;
+    color: #fff;
+    font-size: 16px;
 
-    background: green;
+    background: #8E3FFF;
     cursor: pointer;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-        background: #fff;
-        color: green;
+        background: transparent;
+        color: #fff;
+        border: 1px solid #fff;
     }
 `

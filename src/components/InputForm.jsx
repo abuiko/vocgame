@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
-import { Container, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
+import { Wrapper, Container, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
 
 
 const InputForm = () => {
@@ -46,49 +46,48 @@ const InputForm = () => {
         setResults(results.filter((item) => item.id != id))
     }
 
-    console.log(existingEntries)
+
 
     return (
-        <Container>
-            <Form>
-                <Text
-                    type="text"
-                    name="text"
-                    id="text"
-                    onChange={(e) => handleText(e)}
-                    placeholder="Word"
-                    required />
-                <Text
-                    type="text"
-                    name="translation"
-                    id="translation"
-                    onChange={(e) => handleTranslation(e)}
-                    placeholder="Translation"
-                    required />
-                <Button onClick={addResult}>ADD</Button>
-            </Form>
+        <Wrapper>
+            <Container>
+                <Form>
+                    <Text
+                        type="text"
+                        name="text"
+                        id="text"
+                        onChange={(e) => handleText(e)}
+                        placeholder="Word"
+                        required />
+                    <Text
+                        type="text"
+                        name="translation"
+                        id="translation"
+                        onChange={(e) => handleTranslation(e)}
+                        placeholder="Translation"
+                        required />
+                    <Button onClick={addResult}>Add</Button>
+                </Form>
 
-            {existingEntries !== [] ? (
-                <Result>
-                    {existingEntries.map(item => (
-                        <Row key={item.id}>
-                            <Left>{item.word}</Left>
-                            <Right>{item.translation}</Right>
-                            <Icons>
-                                <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "green" }} />
-                                <AiOutlineDelete style={{ cursor: "pointer", color: "red" }} onClick={(e) => deleteResult(e, item.id)} />
-                            </Icons>
-                        </Row>
-                    ))
-                    }
-                </Result>
-            ) : null}
-            {existingEntries.length > 0 ? <Submit>PLAY</Submit> : null}
+                {existingEntries !== [] ? (
+                    <Result>
+                        {existingEntries.map(item => (
+                            <Row key={item.id}>
+                                <Left>{item.word}</Left>
+                                <Right>{item.translation}</Right>
+                                <Icons>
+                                    <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
+                                    <AiOutlineDelete style={{ cursor: "pointer", color: "#8E3FFF" }} onClick={(e) => deleteResult(e, item.id)} />
+                                </Icons>
+                            </Row>
+                        ))
+                        }
+                    </Result>
+                ) : null}
+                {existingEntries.length > 0 ? <Submit>PLAY</Submit> : null}
+            </Container>
+        </Wrapper>
 
-
-
-
-        </Container>
     )
 }
 
