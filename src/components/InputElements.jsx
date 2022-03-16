@@ -61,7 +61,7 @@ export const Right = styled.div``
 export const Icons = styled.div`
     font-size: 22px;
 `
-export const Wrapper = styled.div``
+
 export const Submit = styled.button`
     width: 100px;
     padding: 10px;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
-import { Container, Form, Text, Button, Result, Row, Left, Right, Icons, Wrapper, Submit } from './InputElements'
+import { Container, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
 
 
 const InputForm = () => {
@@ -44,7 +44,9 @@ const InputForm = () => {
         const obj = existingEntries.filter(item => item.id != id)
         localStorage.setItem("allEntries", JSON.stringify(obj));
         setResults(results.filter((item) => item.id != id))
-    };
+    }
+
+    console.log(existingEntries)
 
     return (
         <Container>
@@ -81,11 +83,7 @@ const InputForm = () => {
                     }
                 </Result>
             ) : null}
-            {existingEntries !== [] ? (
-                <Wrapper>
-                    <Submit>PLAY</Submit>
-                </Wrapper>
-            ) : null}
+            {existingEntries.length > 0 ? <Submit>PLAY</Submit> : null}
 
 
 
