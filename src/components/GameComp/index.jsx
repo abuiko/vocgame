@@ -1,6 +1,12 @@
 import React from 'react'
 import { AiOutlineLeft } from 'react-icons/ai'
-import { Container, Left, Top, Icon, Text, Center, Score, Count, Title, Bottom, Resume, Right, Form, Input } from './GameElements'
+import { Container, Left, Top, Icon, Text, Center, Score, Count, Title, Bottom, Resume } from './GameElements'
+
+import Stage from "../Stage"
+import Display from '../Display'
+import StartButton from '../StartButton'
+
+import { createStage } from '../../gameHelpers'
 
 const GameComp = () => {
     return (
@@ -24,13 +30,7 @@ const GameComp = () => {
                     <Resume>Pause</Resume>
                 </Bottom>
             </Left>
-            <Right>
-                <Form>
-                    <Input
-                        placeholder="Type your answer and press enter..."
-                    />
-                </Form>
-            </Right>
+            <Stage stage={createStage()} />
         </Container>
     )
 }

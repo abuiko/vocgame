@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import image from '../../assets/bg.jpg'
+
 
 
 export const Container = styled.div`
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     position: relative;
     
@@ -59,27 +59,4 @@ export const Resume = styled.button`
     cursor: pointer;
     border-radius: 5px; 
 
-`
-export const Right = styled.div`
-    width: 100%;
-    position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url(${image});
-`
-export const Form = styled.div`
-    position: absolute;
-    bottom: 6%;
-    left: 50%;
-    transform: translate(-50%, -6%);
-`
-export const Input = styled.input`
-    width: 500px;
-    padding: 15px 10px 15px 30px;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 18px;
 `
