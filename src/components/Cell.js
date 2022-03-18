@@ -5,7 +5,7 @@ import { ASTEROIDS } from '../asteroids'
 
 const Cell = ({ type }) => {
     return (
-        <StyledCell type={'L'} color={ASTEROIDS['L'].color} />
+        <StyledCell type={type} color={ASTEROIDS[type].color} />
     )
 }
 
