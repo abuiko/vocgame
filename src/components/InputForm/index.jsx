@@ -18,7 +18,6 @@ const InputForm = () => {
 
     // local storage
     let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-    console.log(existingEntries)
 
     const addResult = () => {
 
@@ -84,7 +83,7 @@ const InputForm = () => {
                         }
                     </Result>
                 ) : null}
-                {existingEntries.length > 0 ? <Submit>START GAME</Submit> : null}
+                {existingEntries.length > 0 ? <Submit to="/game">START GAME</Submit> : null}
             </Container>
         </Wrapper>
 

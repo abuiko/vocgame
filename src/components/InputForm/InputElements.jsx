@@ -1,6 +1,7 @@
 
 import styled from 'styled-components'
 import image from '../../assets/bg.jpg'
+import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.div`
     background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url(${image});
@@ -78,18 +79,18 @@ export const Row = styled.div`
     border-radius: 5px;
     border: none;
     color: #fff;
-    
-   
+
 `
 export const Left = styled.div``
 export const Right = styled.div``
 
 export const Icons = styled.div`
     font-size: 22px;
-    
 `
 
-export const Submit = styled.button`
+export const Submit = styled(Link)`
+    text-decoration: none;
+    text-align: center;
     width: 150px;
     padding: 10px;
     border: 1px solid #8E3FFF;

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-
+import { Link } from 'react-router-dom'
 
 
 export const Container = styled.div`
     height: 100vh;
     display: flex;
     position: relative;
+    width: 100%;
     
 `
 export const Left = styled.div`
@@ -16,7 +17,9 @@ export const Left = styled.div`
     flex-direction: column;
     justify-content: space-between;
 `
-export const Top = styled.div`
+export const Top = styled(Link)`
+    text-decoration: none;
+
     color: #fff;
     display: flex;
     align-items: center;

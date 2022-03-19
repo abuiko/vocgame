@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import image from '../assets/bg.jpg'
-import Cell from './Cell'
+import asteroid from '../assets/asteroid1.png'
+
 
 const Right = styled.div`
     width: 100%;
@@ -35,15 +36,67 @@ const Input = styled.input`
     color: #fff;
     font-size: 18px;
 `
+const Set = styled.ul`
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+`
 
-const Stage = ({ stage }) => {
+const Wrap = styled.div`
+        position: relative;
+        width: 200px;
+        height: 170px;
+
+`
+const Image = styled.img`
+    width: 100%;
+    object-fit: cover;
+`
+
+const Word = styled.li`
+        color: white;
+        font-size: 20px; 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);  
+`
+
+
+
+
+
+const Stage = () => {
+    let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+    const words = existingEntries.map(item => <Wrap key={item.id}><Image src={asteroid} alt="asteroid" /><Word >{item.word}</Word></Wrap>)
+
+
+    const [text, setText] = useState("")
+
+    function handleChange(e) {
+        setText(e.target.value);
+    }
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            console.log(text)
+        }
+    }
+
+
+
     return (
-        <Right width={stage[0].length} height={stage.length}>
-            {stage.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))}
+        <Right>
+            <Set>
+                {words}
+            </Set>
 
             <Form>
                 <Input
                     placeholder="Type your answer and press enter..."
+                    type="text"
+                    value={text}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
                 />
             </Form>
         </Right>
