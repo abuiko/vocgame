@@ -1,6 +1,20 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import { keyframes } from 'styled-components'
+
+
+const fadeInAnimation = keyframes`
+    0% {
+      opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  `
 
 export const Container = styled.div`
     height: 100vh;
@@ -8,7 +22,54 @@ export const Container = styled.div`
     position: relative;
     width: 100%;
     
+    
 `
+
+export const Overlay = styled.div`
+    background: rgba(0,0,0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease-in-out; 
+`
+export const Wrapper = styled.div`
+    animation: ${fadeInAnimation} 1s linear;
+    -webkit-box-shadow: -1px 1px 39px -5px rgba(142,63,255,0.81); 
+    box-shadow: -1px 1px 39px -5px rgba(142,63,255,0.81);
+    background: rgba(0,0,0,0.5);
+    width: 50%;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+`
+export const Desc = styled.div`
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 30px;
+`
+export const StartBtn = styled.button`
+    background: rgb(142,63,255);
+   
+    border: 1px solid #8E3FFF;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px; 
+`
+
 export const Left = styled.div`
     background: #000;
     width: 300px;
