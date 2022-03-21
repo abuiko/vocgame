@@ -35,6 +35,8 @@ const InputForm = () => {
             localStorage.setItem("allEntries", JSON.stringify(existingEntries));
 
             setResults([...results, obj]);
+            setWord("")
+            setTranslation("")
 
         }
     }
@@ -53,14 +55,16 @@ const InputForm = () => {
                 <Form>
                     <Text
                         type="text"
-                        name="text"
-                        id="text"
+                        name="word"
+                        value={word}
+                        id="word"
                         onChange={(e) => handleText(e)}
                         placeholder="Word"
                         required />
                     <Text
                         type="text"
                         name="translation"
+                        value={translation}
                         id="translation"
                         onChange={(e) => handleTranslation(e)}
                         placeholder="Translation"

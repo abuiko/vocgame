@@ -11,6 +11,7 @@ import Stage from '../Stage'
 const GameComp = () => {
     const [stop, setStop] = useState(true)
     const [start, setStart] = useState(true)
+
     return (
         <Container>
             {start ?
