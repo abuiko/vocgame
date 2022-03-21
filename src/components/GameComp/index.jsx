@@ -6,11 +6,16 @@ import { Overlay, Wrapper, Desc, StartBtn, Container, Left, Top, Icon, Text, Cen
 import Stage from '../Stage'
 
 
+// hooks
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 
 const GameComp = () => {
     const [stop, setStop] = useState(true)
     const [start, setStart] = useState(true)
+
+    const { height, width } = useWindowDimensions();
+
 
     return (
         <Container>

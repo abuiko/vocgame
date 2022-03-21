@@ -47,6 +47,13 @@ const InputForm = () => {
         setResults(results.filter((item) => item.id != id))
     }
 
+    const handleKeypress = e => {
+        //it triggers by pressing the enter key
+        if (e.keyCode === 13) {
+            console.log('works')
+        }
+    };
+
 
 
     return (
@@ -59,6 +66,7 @@ const InputForm = () => {
                         value={word}
                         id="word"
                         onChange={(e) => handleText(e)}
+                        onKeyPress={handleKeypress}
                         placeholder="Word"
                         required />
                     <Text
@@ -67,9 +75,10 @@ const InputForm = () => {
                         value={translation}
                         id="translation"
                         onChange={(e) => handleTranslation(e)}
+                        onKeyPress={handleKeypress}
                         placeholder="Translation"
                         required />
-                    <Button onClick={addResult}>Add</Button>
+                    <Button onClick={addResult} >Add</Button>
                 </Form>
 
                 {existingEntries !== [] ? (
