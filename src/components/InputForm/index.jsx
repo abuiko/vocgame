@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
-import { Wrapper, Container, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
+import { Wrapper, Container, Desc, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
 
 
 const InputForm = () => {
@@ -47,18 +47,13 @@ const InputForm = () => {
         setResults(results.filter((item) => item.id != id))
     }
 
-    const handleKeypress = e => {
-        //it triggers by pressing the enter key
-        if (e.keyCode === 13) {
-            console.log('works')
-        }
-    };
 
 
 
     return (
         <Wrapper>
             <Container>
+                <Desc>Fill out word and traslation fields below, press ADD button to add to vocabulary. Then press START GAME to proceed.</Desc>
                 <Form>
                     <Text
                         type="text"
@@ -66,7 +61,7 @@ const InputForm = () => {
                         value={word}
                         id="word"
                         onChange={(e) => handleText(e)}
-                        onKeyPress={handleKeypress}
+
                         placeholder="Word"
                         required />
                     <Text
@@ -75,10 +70,10 @@ const InputForm = () => {
                         value={translation}
                         id="translation"
                         onChange={(e) => handleTranslation(e)}
-                        onKeyPress={handleKeypress}
+
                         placeholder="Translation"
                         required />
-                    <Button onClick={addResult} >Add</Button>
+                    <Button onClick={addResult}>Add</Button>
                 </Form>
 
                 {existingEntries !== [] ? (
