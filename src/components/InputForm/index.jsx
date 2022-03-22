@@ -47,6 +47,12 @@ const InputForm = () => {
         setResults(results.filter((item) => item.id != id))
     }
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            addResult()
+        }
+    }
+
 
 
 
@@ -61,7 +67,7 @@ const InputForm = () => {
                         value={word}
                         id="word"
                         onChange={(e) => handleText(e)}
-
+                        onKeyDown={handleKeyDown}
                         placeholder="Word"
                         required />
                     <Text
@@ -70,7 +76,7 @@ const InputForm = () => {
                         value={translation}
                         id="translation"
                         onChange={(e) => handleTranslation(e)}
-
+                        onKeyDown={handleKeyDown}
                         placeholder="Translation"
                         required />
                     <Button onClick={addResult}>Add</Button>

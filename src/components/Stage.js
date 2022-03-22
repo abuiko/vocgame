@@ -6,15 +6,8 @@ import asteroid from '../assets/asteroid1.png'
 
 const Right = styled.div`
     width: 100%;
-    display: grid;
-    grid-template-rows: repeat(
-        ${props => props.height},
-        calc(25vw / ${props => props.width})
-    );
-    grid-template-columns: repeat(${props => props.width}, 1fr);
-    grid-gap: 1px;
+    
     border: 2px solid #333;
-    width: 100%;
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,9 +30,11 @@ const Input = styled.input`
     font-size: 18px;
 `
 const Set = styled.ul`
+        width: 100%;
         list-style: none;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        flex-wrap: wrap;
 `
 
 const Wrap = styled.div`
