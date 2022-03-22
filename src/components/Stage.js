@@ -63,20 +63,27 @@ const Word = styled.li`
 
 const Stage = () => {
     let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-    const words = existingEntries.map(item => <Wrap key={item.id}><Image src={asteroid} alt="asteroid" /><Word >{item.word}</Word></Wrap>)
 
 
     const [text, setText] = useState("")
+    const [list, setList] = useState(existingEntries)
 
     function handleChange(e) {
         setText(e.target.value);
     }
+
+
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            console.log(text)
+            console.log(list)
+            const filteredList = list.filter(item => item.translation !== event.target.value)
+            console.log(filteredList)
+            setList(filteredList)
+            setText('')
         }
     }
 
+    const words = list.map(item => <Wrap key={item.id}><Image src={asteroid} alt="asteroid" /><Word >{item.word}</Word></Wrap>)
 
 
     return (

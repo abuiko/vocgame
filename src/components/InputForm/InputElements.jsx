@@ -99,10 +99,11 @@ export const Icons = styled.div`
 
 export const Submit = styled(Link)`
     text-decoration: none;
-    text-align: center;
     width: 150px;
     padding: 10px;
-    
+    display: block;
+    text-align: center;
+    margin: auto;
     color: #fff;
     font-size: 16px;
      background: transparent;
