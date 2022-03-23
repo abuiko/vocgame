@@ -154,6 +154,7 @@ export const Input = styled.input`
 `
 export const Set = styled.ul`
         width: 100%;
+        height: 100%;
         position: absolute;
         list-style: none;
         display: flex;
@@ -163,7 +164,6 @@ export const Set = styled.ul`
 
 export const Wrap = styled.div`
         position: absolute;
-        top: 5%;
         width: 200px;
         height: 170px;
        
