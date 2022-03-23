@@ -28,6 +28,7 @@ const InputForm = () => {
                 id: Math.floor(Math.random() * 1000),
                 word: word,
                 translation: translation,
+                position: Math.floor(Math.random() * 80)
             };
             localStorage.setItem("entry", JSON.stringify(obj));
             // Save allEntries back to local storage

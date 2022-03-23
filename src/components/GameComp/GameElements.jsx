@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-
+import image from '../../assets/bg.jpg'
 import { keyframes } from 'styled-components'
+
+
 
 
 const fadeInAnimation = keyframes`
@@ -21,6 +23,7 @@ export const Container = styled.div`
     display: flex;
     position: relative;
     width: 100%;
+    overflow: hidden;
     
     
 `
@@ -72,7 +75,7 @@ export const StartBtn = styled.button`
 
 export const Left = styled.div`
     background: #000;
-    width: 300px;
+    flex: 1;
     padding: 30px 20px 60px;
     display: flex;
     flex-direction: column;
@@ -123,4 +126,58 @@ export const Resume = styled.button`
     cursor: pointer;
     border-radius: 5px; 
 
+`
+export const Right = styled.div`
+    flex: 5;
+    border: 2px solid #333;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url(${image});
+`
+
+export const Form = styled.div`
+    position: absolute;
+    bottom: 6%;
+    left: 50%;
+    transform: translate(-50%, -6%);
+`
+export const Input = styled.input`
+    width: 500px;
+    padding: 15px 10px 15px 30px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 18px;
+`
+export const Set = styled.ul`
+        width: 100%;
+        position: absolute;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+`
+
+export const Wrap = styled.div`
+        position: absolute;
+        top: 5%;
+        width: 200px;
+        height: 170px;
+       
+`
+export const Image = styled.img`
+    width: 100%;
+    object-fit: cover;
+`
+
+export const Word = styled.li`
+        color: white;
+        font-size: 20px; 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);  
 `
