@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import asteroid from '../../assets/asteroid1.png'
 // styled components
 import { AiOutlineLeft } from 'react-icons/ai'
-import { Overlay, Wrapper, Desc, StartBtn, Container, Left, Right, Top, Icon, Text, Center, Score, Count, Title, Bottom, Resume, Wrap, Image, Set, Form, Input, Word } from './GameElements'
+import { Container, Left, Right, Top, Icon, Text, Center, Score, Count, Title, Bottom, Resume, Wrap, Image, Set, Form, Input, Word } from './GameElements'
+import ModalWindow from './ModalWindow'
 
 
 
@@ -11,8 +12,14 @@ import { Overlay, Wrapper, Desc, StartBtn, Container, Left, Right, Top, Icon, Te
 
 
 const GameComp = () => {
+
+    // TO START A GAME
+    const [start, setStart] = useState(false)
+
+    // TO PAUSE / RESUME GAME 
     const [stop, setStop] = useState(true)
-    const [start, setStart] = useState(true)
+
+
     const [offset, setOffset] = useState(0)
     const [score, setScore] = useState(0)
 
@@ -23,18 +30,26 @@ const GameComp = () => {
         existingEntries[i].Y = -i * 200;
     }
 
+    // INPUT VALUE
     const [text, setText] = useState("")
+
+    // VOCABULARY
     const [list, setList] = useState(existingEntries)
     const [filteredList, setFilteredList] = useState([])
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setOffset(offset => offset + 1);
+    function getStart() {
+        setStart(!start)
+    }
 
+    useEffect(() => {
+        if (start) {
+            const interval = setInterval(() => {
+                setOffset(offset => offset + 1);
+            }, 30);
+            return () => clearInterval(interval);
+        }
 
-    //     }, 20);
-    //     return () => clearInterval(interval);
-    // }, []);
+    }, [start]);
 
 
     // Y <= height - hightRock
@@ -59,17 +74,19 @@ const GameComp = () => {
     }
 
 
+
     return (
         <Container>
-            {start ?
-                <Overlay>
-                    <Wrapper>
-                        <Desc>Destroy incoming asteroids!</Desc>
-                        <StartBtn onClick={() => setStart(!start)}>Get Started</StartBtn>
-                    </Wrapper>
-                </Overlay>
+            {!start ?
+                <ModalWindow getStart={getStart} title="Destroy all asteroids!" desc="When you press GET STARTED you will see falling asteroids with words. Enter the translation to the words, one at a time, and press ENTER. If you are correct, asteroid will be destroyed, if not - try again! But BE AWARE, you have time only until asteroid touches the bottom of your screen. HAVE FUN!" />
                 :
                 ""
+            }
+            {
+                list.length === 0 ?
+                    <ModalWindow desc="Congratulations! You won!" />
+                    :
+                    ""
             }
 
             <Left>
