@@ -17,7 +17,7 @@ const GameComp = () => {
     const [start, setStart] = useState(false)
 
     // TO PAUSE / RESUME GAME 
-    const [stop, setStop] = useState(true)
+    const [pause, setPause] = useState(false)
 
 
     const [offset, setOffset] = useState(0)
@@ -78,7 +78,7 @@ const GameComp = () => {
     return (
         <Container>
             {!start ?
-                <ModalWindow getStart={getStart} title="Destroy all asteroids!" desc="When you press GET STARTED you will see falling asteroids with words. Enter the translation to the words, one at a time, and press ENTER. If you are correct, asteroid will be destroyed, if not - try again! But BE AWARE, you have time only until asteroid touches the bottom of your screen. HAVE FUN!" />
+                <ModalWindow getStart={getStart} title="Destroy all asteroids!" desc="When you press GET STARTED you will see falling asteroids with words. Enter the translation to the words, one at a time, and press SPACE. If you are correct, asteroid will be destroyed, if not - try again! But BE AWARE, you have time only until asteroid touches the bottom of your screen. HAVE FUN!" />
                 :
                 ""
             }
@@ -106,7 +106,7 @@ const GameComp = () => {
                     </Score>
                 </Center>
                 <Bottom>
-                    <Resume onClick={() => setStop(!stop)}>{!stop ? "Resume" : "Stop"}</Resume>
+                    <Resume onClick={() => setPause(!pause)}>{!pause ? "Pause" : "Resume"}</Resume>
                 </Bottom>
             </Left>
             <Right>

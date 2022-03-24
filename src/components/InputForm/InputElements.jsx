@@ -15,7 +15,7 @@ export const Container = styled.div`
     padding-top: 250px;
     width: 650px;
     margin: auto;
-    padding-bottom: 100px;
+    padding-bottom: 40px;
    
     
 `
@@ -70,24 +70,26 @@ export const Button = styled.button`
 `
 
 export const Result = styled.div`
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;  
+    width: 1200px;
+    display: flex;
+    margin: 50px auto;
+    flex-wrap: wrap;
    
 `
 
 export const Row = styled.div`
-    width: 100%;
+    width: 49%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 0px 5px 10px 5px;
     padding: 15px 40px;
     box-sizing: border-box; 
     background: rgba(0,0,0,0.7);
     border-radius: 5px;
     border: none;
     color: #fff;
+    
 
 `
 export const Left = styled.div``

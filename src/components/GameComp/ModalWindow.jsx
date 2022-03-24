@@ -37,7 +37,7 @@ const Wrapper = styled.div`
     box-shadow: -1px 1px 39px -5px rgba(142,63,255,0.81);
     background: rgba(0,0,0,0.5);
     width: 50%;
-    height: 350px;
+    height: 390px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -56,8 +56,8 @@ const Desc = styled.p`
     color: #fff;
     margin-bottom: 30px;
     text-align: center;
-    line-height: 24px;
-    font-size: 18px;
+    line-height: 29px;
+    font-size: 19px;
     
 `
 const StartBtn = styled.button`

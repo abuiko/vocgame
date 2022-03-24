@@ -83,23 +83,24 @@ const InputForm = () => {
                     <Button onClick={addResult}>Add</Button>
                 </Form>
 
-                {existingEntries !== [] ? (
-                    <Result>
-                        {existingEntries.map(item => (
-                            <Row key={item.id}>
-                                <Left>{item.word}</Left>
-                                <Right>{item.translation}</Right>
-                                <Icons>
-                                    <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
-                                    <AiOutlineDelete style={{ cursor: "pointer", color: "#8E3FFF" }} onClick={(e) => deleteResult(e, item.id)} />
-                                </Icons>
-                            </Row>
-                        ))
-                        }
-                    </Result>
-                ) : null}
-                {existingEntries.length > 0 ? <Submit to="/game">START GAME</Submit> : null}
+
             </Container>
+            {existingEntries !== [] ? (
+                <Result>
+                    {existingEntries.map(item => (
+                        <Row key={item.id}>
+                            <Left>{item.word}</Left>
+                            <Right>{item.translation}</Right>
+                            <Icons>
+                                <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
+                                <AiOutlineDelete style={{ cursor: "pointer", color: "#8E3FFF" }} onClick={(e) => deleteResult(e, item.id)} />
+                            </Icons>
+                        </Row>
+                    ))
+                    }
+                </Result>
+            ) : null}
+            {existingEntries.length > 0 ? <Submit to="/game">START GAME</Submit> : null}
         </Wrapper >
 
     )
