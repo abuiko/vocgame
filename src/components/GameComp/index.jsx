@@ -78,13 +78,13 @@ const GameComp = () => {
     return (
         <Container>
             {!start ?
-                <ModalWindow getStart={getStart} title="Destroy all asteroids!" desc="When you press GET STARTED you will see falling asteroids with words. Enter the translation to the words, one at a time, and press SPACE. If you are correct, asteroid will be destroyed, if not - try again! But BE AWARE, you have time only until asteroid touches the bottom of your screen. HAVE FUN!" />
+                <ModalWindow returnBtn={false} getStart={getStart} title="Destroy all asteroids!" desc="When you press START GAME you will see falling asteroids with words. Enter the translation to the words, one at a time, and press SPACE. If you are correct, asteroid will be destroyed, if not - try again! But BE AWARE, you have time only until asteroid touches the bottom of your screen. HAVE FUN!" />
                 :
                 ""
             }
             {
                 list.length === 0 ?
-                    <ModalWindow desc="Congratulations! You won!" />
+                    <ModalWindow title="Congratulations! You won!" returnBtn={true} />
                     :
                     ""
             }

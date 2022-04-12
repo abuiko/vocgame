@@ -51,22 +51,25 @@ const Title = styled.h2`
     font-size: 32px;
     margin-bottom: 30px;
     font-weight: normal;
+    
 `
 const Desc = styled.p`
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
     line-height: 29px;
     font-size: 19px;
     
 `
-const StartBtn = styled.button`
+const BtnWrap = styled.div``
+const Button = styled.button`
     background: rgb(142,63,255);
    
     border: 1px solid #8E3FFF;
     color: #fff;
-    padding: 10px 30px;
+    padding: 6px 30px;
     font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
     border-radius: 5px; 
 `
@@ -79,7 +82,11 @@ const ModalWindow = (props) => {
             <Wrapper>
                 <Title>{props.title}</Title>
                 <Desc>{props.desc}</Desc>
-                <StartBtn onClick={() => props.getStart()}>Get Started</StartBtn>
+                <BtnWrap>
+                    <Button onClick={() => props.getStart()} style={{ marginRight: '10px' }}>{!props.returnBtn ? "Start Game" : "Start Again"}</Button>
+                    {props.returnBtn ? <Button>Main Page</Button> : ""}
+                </BtnWrap>
+
             </Wrapper>
         </Overlay>
     )
