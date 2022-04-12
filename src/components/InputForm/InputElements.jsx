@@ -9,8 +9,28 @@ export const Wrapper = styled.div`
     background-repeat: no-repeat;
     background-position: center; 
     min-height: 100vh;
+    padding-bottom: 50px;
     
 `
+
+export const Nav = styled.div`
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 60px;
+`
+
+export const Logo = styled.div``
+export const Img = styled.img`
+    width: 200px;
+`
+export const Rules = styled.p`
+    color: #fff;
+    font-family: 'Kodchasan', sans-serif;
+    font-size: 19px;
+`
+
 export const Container = styled.div`
     padding-top: 250px;
     width: 650px;
@@ -27,6 +47,8 @@ export const Desc = styled.p`
     line-height: 24px;
     text-align: center;
     letter-spacing: 1.3px;
+    font-family:  'Kodchasan', sans-serif;
+    font-weight: 500;
 `
 export const Form = styled.div`
     

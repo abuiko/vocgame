@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
-import { Wrapper, Container, Desc, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
-
+import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
+import LogoImg from '../../assets/logo.png'
 
 const InputForm = () => {
     const [word, setWord] = useState("")
@@ -59,6 +59,12 @@ const InputForm = () => {
 
     return (
         <Wrapper>
+            <Nav>
+                <Logo>
+                    <Img src={LogoImg} alt="logo" />
+                </Logo>
+                <Rules>Rules</Rules>
+            </Nav>
             <Container>
                 <Desc>Fill out word and traslation fields below, press ADD button to add to vocabulary. Then press START GAME to proceed.</Desc>
                 <Form>
@@ -85,22 +91,24 @@ const InputForm = () => {
 
 
             </Container>
-            {existingEntries !== [] ? (
-                <Result>
-                    {existingEntries.map(item => (
-                        <Row key={item.id}>
-                            <Left>{item.word}</Left>
-                            <Right>{item.translation}</Right>
-                            <Icons>
-                                <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
-                                <AiOutlineDelete style={{ cursor: "pointer", color: "#8E3FFF" }} onClick={(e) => deleteResult(e, item.id)} />
-                            </Icons>
-                        </Row>
-                    ))
-                    }
-                </Result>
-            ) : null}
-            {existingEntries.length > 0 ? <Submit to="/game">START GAME</Submit> : null}
+            {
+                existingEntries !== [] ? (
+                    <Result>
+                        {existingEntries.map(item => (
+                            <Row key={item.id}>
+                                <Left>{item.word}</Left>
+                                <Right>{item.translation}</Right>
+                                <Icons>
+                                    <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
+                                    <AiOutlineDelete style={{ cursor: "pointer", color: "#8E3FFF" }} onClick={(e) => deleteResult(e, item.id)} />
+                                </Icons>
+                            </Row>
+                        ))
+                        }
+                    </Result>
+                ) : null
+            }
+            { existingEntries.length > 0 ? <Submit to="/game">START GAME</Submit> : null}
         </Wrapper >
 
     )
