@@ -4,12 +4,13 @@ import image from '../../assets/bg.jpg'
 import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.div`
-    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),url(${image});
+    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url(${image});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; 
     min-height: 100vh;
     padding-bottom: 50px;
+    box-sizing: border-box;
     
 `
 
@@ -29,6 +30,7 @@ export const Rules = styled.p`
     color: #fff;
     font-family: 'Kodchasan', sans-serif;
     font-size: 19px;
+    cursor: pointer;
 `
 
 export const Container = styled.div`
@@ -52,7 +54,7 @@ export const Desc = styled.p`
 `
 export const Form = styled.div`
     
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.5);
     border: none;
     border-radius: 10px;
     padding: 50px 35px;
@@ -107,15 +109,19 @@ export const Row = styled.div`
     margin: 0px 5px 10px 5px;
     padding: 15px 40px;
     box-sizing: border-box; 
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.5);
     border-radius: 5px;
     border: none;
     color: #fff;
     
 
 `
-export const Left = styled.div``
-export const Right = styled.div``
+export const Left = styled.div`
+    font-size: 20px;
+`
+export const Right = styled.div`
+    font-size: 20px;
+`
 
 export const Icons = styled.div`
     font-size: 22px;

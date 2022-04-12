@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { keyframes } from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 const fadeInAnimation = keyframes`
@@ -64,7 +65,6 @@ const Desc = styled.p`
 const BtnWrap = styled.div``
 const Button = styled.button`
     background: rgb(142,63,255);
-   
     border: 1px solid #8E3FFF;
     color: #fff;
     padding: 6px 30px;
@@ -73,7 +73,17 @@ const Button = styled.button`
     cursor: pointer;
     border-radius: 5px; 
 `
-
+const ButtonLink = styled(Link)`
+    background: rgb(142,63,255);
+    border: 1px solid #8E3FFF;
+    color: #fff;
+    padding: 6px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px; 
+    text-decoration: none;
+`
 
 const ModalWindow = (props) => {
 
@@ -83,8 +93,9 @@ const ModalWindow = (props) => {
                 <Title>{props.title}</Title>
                 <Desc>{props.desc}</Desc>
                 <BtnWrap>
-                    <Button onClick={() => props.getStart()} style={{ marginRight: '10px' }}>{!props.returnBtn ? "Start Game" : "Start Again"}</Button>
-                    {props.returnBtn ? <Button>Main Page</Button> : ""}
+                    {!props.returnBtn ? <Button onClick={() => props.getStart()} style={{ marginRight: '10px' }}>Start Game</Button> : ""}
+
+                    {props.returnBtn ? <ButtonLink to="/">Return to Main Page</ButtonLink> : ""}
                 </BtnWrap>
 
             </Wrapper>

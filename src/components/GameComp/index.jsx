@@ -38,7 +38,8 @@ const GameComp = () => {
     const [filteredList, setFilteredList] = useState([])
 
     function getStart() {
-        setStart(!start)
+
+        setStart(true)
     }
 
     useEffect(() => {
