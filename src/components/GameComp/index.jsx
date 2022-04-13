@@ -46,7 +46,7 @@ const GameComp = () => {
         if (start) {
             const interval = setInterval(() => {
                 setOffset(offset => offset + 1);
-            }, 30);
+            }, 20);
             return () => clearInterval(interval);
         }
 

@@ -34,18 +34,18 @@ export const Rules = styled.p`
 `
 
 export const Container = styled.div`
-    padding-top: 250px;
-    width: 650px;
+    padding-top: 70px;
+    width: 850px;
     margin: auto;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
    
     
 `
 export const Desc = styled.p`
-    width: 100%;
+    width: 90%;
     color: #fff;
     font-size: 17px;
-    margin-bottom: 40px;
+    margin: 0px auto 40px;
     line-height: 24px;
     text-align: center;
     letter-spacing: 1.3px;
@@ -67,6 +67,7 @@ export const Form = styled.div`
 export const Text = styled.input`
     margin-right: 10px;
     padding: 10px;
+    flex: 1;
     border: none;
     outline: none;
     font-size: 16px;
@@ -96,7 +97,7 @@ export const Button = styled.button`
 export const Result = styled.div`
     width: 1200px;
     display: flex;
-    margin: 50px auto;
+    margin: 20px auto;
     flex-wrap: wrap;
    
 `
@@ -133,7 +134,7 @@ export const Submit = styled(Link)`
     padding: 10px;
     display: block;
     text-align: center;
-    margin: auto;
+    margin: 30px auto 0px;
     color: #fff;
     font-size: 16px;
      background: transparent;
