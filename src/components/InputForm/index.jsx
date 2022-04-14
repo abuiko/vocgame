@@ -3,11 +3,17 @@ import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
 import LogoImg from '../../assets/logo.png'
+import RulesDesc from './Rules'
 
 const InputForm = () => {
     const [word, setWord] = useState("")
     const [translation, setTranslation] = useState("")
     const [results, setResults] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
+
+    // const handleRules = () => {
+    //     setIsOpen(!isOpen)
+    // }
 
     const handleText = (e) => {
         setWord(e.target.value);
@@ -54,11 +60,9 @@ const InputForm = () => {
         }
     }
 
-
-
-
     return (
         <Wrapper>
+            <RulesDesc />
             <Nav>
                 <Logo>
                     <Img src={LogoImg} alt="logo" />
