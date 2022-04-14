@@ -9,11 +9,14 @@ const InputForm = () => {
     const [word, setWord] = useState("")
     const [translation, setTranslation] = useState("")
     const [results, setResults] = useState([])
+
+    // rules component
     const [isOpen, setIsOpen] = useState(false)
 
-    // const handleRules = () => {
-    //     setIsOpen(!isOpen)
-    // }
+    // to open rules component
+    const handleRules = () => {
+        setIsOpen(!isOpen)
+    }
 
     const handleText = (e) => {
         setWord(e.target.value);
@@ -62,12 +65,13 @@ const InputForm = () => {
 
     return (
         <Wrapper>
-            <RulesDesc />
+            {isOpen ? <RulesDesc handleRules={handleRules} /> : ""}
+
             <Nav>
                 <Logo>
                     <Img src={LogoImg} alt="logo" />
                 </Logo>
-                <Rules>Rules</Rules>
+                <Rules onClick={() => handleRules()}>Rules</Rules>
             </Nav>
             <Container>
                 <Desc>Fill out word and traslation fields below, press ADD button to add to vocabulary. Then press START GAME to proceed.</Desc>
