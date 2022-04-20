@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { keyframes } from 'styled-components'
 import { ImCross } from 'react-icons/im'
+import RulesImg from '../../assets/rules.png'
 
 
 const fadeInAnimation = keyframes`
@@ -38,8 +39,8 @@ const Wrapper = styled.div`
     -webkit-box-shadow: -1px 1px 39px -5px rgba(142,63,255,0.81); 
     box-shadow: -1px 1px 39px -5px rgba(142,63,255,0.81);
     background: rgba(0,0,0,0.8);
-    width: 50%;
-    height: 60%;
+    width: 700px;
+    height: 80%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -48,19 +49,26 @@ const Wrapper = styled.div`
     padding: 20px 55px;
     
 `
-const Title = styled.h2`
-    color: #fff;
-    font-size: 32px;
-    margin-bottom: 30px;
-    font-weight: normal;
-    
-`
-const Desc = styled.p`
-    color: #fff;
-    margin-bottom: 40px;
-    text-align: center;
-    line-height: 29px;
-    font-size: 19px;
+// const Title = styled.h2`
+//     color: #fff;
+//     font-size: 32px;
+//     margin-bottom: 30px;
+//     font-weight: normal;
+
+// `
+// const Desc = styled.p`
+//     color: #fff;
+//     margin-bottom: 40px;
+//     text-align: center;
+//     line-height: 29px;
+//     font-size: 19px;
+
+// `
+
+const Desc = styled.img`
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
     
 `
 const IconWrap = styled.div`
@@ -86,8 +94,8 @@ const Rules = (props) => {
     return (
         <Overlay>
             <Wrapper>
-                <Title>RULES</Title>
-                <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Desc>
+
+                <Desc src={RulesImg} alt="rules to the game" />
                 <IconWrap onClick={() => props.handleRules()}>
                     <Icon />
                 </IconWrap>
