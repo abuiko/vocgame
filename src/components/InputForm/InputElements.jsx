@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import image from '../../assets/bg.jpg'
 import { Link } from 'react-router-dom'
+import { device } from '../responsive'
 
 export const Wrapper = styled.div`
     background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url(${image});
@@ -35,7 +36,7 @@ export const Rules = styled.p`
 
 export const Container = styled.div`
     padding-top: 70px;
-    width: 850px;
+    max-width: 850px;
     margin: auto;
     padding-bottom: 20px;
    
@@ -95,11 +96,11 @@ export const Button = styled.button`
 `
 
 export const Result = styled.div`
-    width: 1200px;
+    max-width: 1200px;
     display: flex;
     margin: 20px auto;
+    padding: 0px 20px;
     flex-wrap: wrap;
-   
 `
 
 export const Row = styled.div`
@@ -114,7 +115,10 @@ export const Row = styled.div`
     border-radius: 5px;
     border: none;
     color: #fff;
-    
+
+    @media screen and ${device.laptop} {
+        width: 100%;
+    }
 
 `
 export const Left = styled.div`

@@ -116,7 +116,7 @@ const InputForm = () => {
                     </Result>
                 ) : null
             }
-            { existingEntries.length > 0 ? <Submit to="/game">START GAME</Submit> : null}
+            { existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
         </Wrapper >
 
     )
