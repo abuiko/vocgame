@@ -62,7 +62,6 @@ const InputForm = () => {
             setResults([...results, obj]);
             setWord("")
             setTranslation("")
-
         }
     }
 
@@ -91,7 +90,6 @@ const InputForm = () => {
     return (
         <Wrapper>
             {isOpen ? <RulesDesc handleRules={handleRules} /> : ""}
-
             <Nav>
                 <Logo>
                     <Img src={LogoImg} alt="logo" />
@@ -119,9 +117,6 @@ const InputForm = () => {
                             addResult={addResult}
                         />
                     )}
-
-
-
             </Container>
             {
                 existingEntries !== [] ? (
@@ -139,7 +134,7 @@ const InputForm = () => {
                     </Result>
                 ) : null
             }
-            {existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
+            {existingEntries.length > 0 && !isEditing ? <Submit to="/game">START</Submit> : null}
         </Wrapper >
 
     )
