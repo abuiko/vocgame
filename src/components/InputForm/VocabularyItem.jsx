@@ -8,7 +8,7 @@ const VocabularyItem = ({ item, handleDelete, handleEdit }) => {
             <Left>{item.word}</Left>
             <Right>{item.translation}</Right>
             <Icons>
-                <FiEdit onClick={(e) => handleEdit()} style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
+                <FiEdit onClick={(e) => handleEdit(e, item)} style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
                 <AiOutlineDelete style={{ cursor: "pointer", color: "#8E3FFF" }} onClick={(e) => handleDelete(e, item.id)} />
             </Icons>
         </Row>

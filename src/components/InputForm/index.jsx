@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+
 import VocabularyItem from './VocabularyItem'
 import AddVocabulary from './AddVocabulary'
+import EditVocabulary from './EditVocabulary'
+import RulesDesc from './Rules'
+
 import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Result, Submit } from './InputElements'
 import LogoImg from '../../assets/logo.png'
-import RulesDesc from './Rules'
+
 
 const InputForm = () => {
     const [word, setWord] = useState("")
@@ -12,6 +16,7 @@ const InputForm = () => {
 
     // editing vocabulary
     const [isEditing, setIsEditing] = useState(false)
+    const [edited, setEdited] = useState({})
 
     // rules component
     const [isOpen, setIsOpen] = useState(false)
@@ -27,6 +32,13 @@ const InputForm = () => {
     const handleTranslation = (e) => {
         setTranslation(e.target.value);
     };
+
+    function handleEditText(e) {
+        setEdited({ ...edited, text: e.target.value });
+    }
+    function handleEditTranslation(e) {
+        setEdited({ ...edited, translation: e.target.value });
+    }
 
     // local storage
     let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
@@ -63,9 +75,12 @@ const InputForm = () => {
     }
 
     // when click "edit icon" to edit vocabulary item
-    const handleEdit = () => {
+    const handleEdit = (e, item) => {
+
         setIsEditing(true)
+        setEdited({ ...edited, text: item.word, translation: item.translation })
     }
+
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -85,15 +100,27 @@ const InputForm = () => {
             </Nav>
             <Container>
                 <Desc>Fill out word and traslation fields below, press ADD button to add to vocabulary. Then press START GAME to proceed.</Desc>
+                {isEditing ? (
+                    <EditVocabulary
+                        word={edited.text}
+                        translation={edited.translation}
+                        handleKeyDown={handleKeyDown}
+                        handleEditText={handleEditText}
+                        handleEditTranslation={handleEditTranslation}
+                        addResult={addResult}
+                    />
+                ) : (
+                        <AddVocabulary
+                            word={word}
+                            translation={translation}
+                            handleKeyDown={handleKeyDown}
+                            handleText={handleText}
+                            handleTranslation={handleTranslation}
+                            addResult={addResult}
+                        />
+                    )}
 
-                <AddVocabulary
-                    word={word}
-                    translation={translation}
-                    handleKeyDown={handleKeyDown}
-                    handleText={handleText}
-                    handleTranslation={handleTranslation}
-                    addResult={addResult}
-                />
+
 
             </Container>
             {
@@ -102,6 +129,7 @@ const InputForm = () => {
                         {existingEntries.map(item => (
 
                             <VocabularyItem
+                                key={item.id}
                                 item={item}
                                 handleEdit={handleEdit}
                                 handleDelete={handleDelete}
