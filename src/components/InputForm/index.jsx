@@ -77,8 +77,22 @@ const InputForm = () => {
     const handleEdit = (e, item) => {
 
         setIsEditing(true)
-        setEdited({ ...edited, text: item.word, translation: item.translation })
+        setEdited({ ...edited, id: item.id, text: item.word, translation: item.translation })
     }
+
+    // const addEditedResult = (e) => {
+    //     e.preventDefault()
+
+    //     handleEdited(edited.id, edited)
+    // }
+
+    // const handleEdited = (id, updatedItem) => {
+    //     const updatedVoc = results.map(result => {
+    //         return result.id === id ? updatedItem : result
+    //     })
+    //     setIsEditing(false)
+    //     setResults(updatedVoc)
+    // }
 
 
     const handleKeyDown = (event) => {
@@ -105,7 +119,7 @@ const InputForm = () => {
                         handleKeyDown={handleKeyDown}
                         handleEditText={handleEditText}
                         handleEditTranslation={handleEditTranslation}
-                        addResult={addResult}
+
                     />
                 ) : (
                         <AddVocabulary

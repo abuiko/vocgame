@@ -100,6 +100,13 @@ export const Result = styled.div`
     margin: 20px auto;
     padding: 0px 20px;
     flex-wrap: wrap;
+    box-sizing: border-box;
+
+    @media screen and ${device.laptop} {
+        
+        padding: 0px 10px;
+    }
+
 `
 
 export const Row = styled.div`
@@ -117,6 +124,7 @@ export const Row = styled.div`
 
     @media screen and ${device.laptop} {
         width: 100%;
+        padding: 15px 35px;
     }
 
 `
