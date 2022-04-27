@@ -37,8 +37,8 @@ const Wrapper = styled.div`
     -webkit-box-shadow: -1px 1px 39px -5px rgba(142,63,255,0.81); 
     box-shadow: -1px 1px 39px -5px rgba(142,63,255,0.81);
     background: rgba(0,0,0,0.5);
-    width: 50%;
-    height: 390px;
+    width: 60%;
+    height: 60%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@ const ModalWindow = (props) => {
                 <Title>{props.title}</Title>
                 <Desc>{props.desc}</Desc>
                 <BtnWrap>
-                    {!props.returnBtn ? <Button onClick={() => props.getStart()} style={{ marginRight: '10px' }}>Start Game</Button> : ""}
+                    {!props.returnBtn ? <Button onClick={() => props.getStart()} style={{ marginRight: '10px' }}>LET'S GO!</Button> : ""}
 
                     {props.returnBtn ? <ButtonLink to="/">Return to Main Page</ButtonLink> : ""}
                 </BtnWrap>

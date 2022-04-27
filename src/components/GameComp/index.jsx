@@ -5,12 +5,8 @@ import { AiOutlineLeft } from 'react-icons/ai'
 import { Container, Left, Right, Top, Icon, Text, Center, Score, Count, Title, Bottom, Resume, Wrap, Image, Set, Form, Input, Word } from './GameElements'
 import ModalWindow from './ModalWindow'
 
-
-
-
 // hooks
 // import useWindowDimensions from '../../hooks/useWindowDimensions'
-
 
 const GameComp = () => {
 
@@ -39,7 +35,6 @@ const GameComp = () => {
     const [filteredList, setFilteredList] = useState([])
 
     function getStart() {
-
         setStart(true)
     }
 
@@ -74,7 +69,6 @@ const GameComp = () => {
             setText('')
         }
     }
-
 
 
     return (
@@ -126,7 +120,6 @@ const GameComp = () => {
                     />
                 </Form>
             </Right>
-
         </Container>
     )
 }

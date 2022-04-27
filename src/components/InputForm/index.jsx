@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { FiEdit } from 'react-icons/fi'
-import { AiOutlineDelete } from 'react-icons/ai'
-import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Form, Text, Button, Result, Row, Left, Right, Icons, Submit } from './InputElements'
+import VocabularyItem from './VocabularyItem'
+import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Form, Text, Button, Result, Submit } from './InputElements'
 import LogoImg from '../../assets/logo.png'
 import RulesDesc from './Rules'
 
@@ -9,6 +8,9 @@ const InputForm = () => {
     const [word, setWord] = useState("")
     const [translation, setTranslation] = useState("")
     const [results, setResults] = useState([])
+
+    // editing vocabulary
+    const [isEditing, setIsEditing] = useState(false)
 
     // rules component
     const [isOpen, setIsOpen] = useState(false)
@@ -50,11 +52,18 @@ const InputForm = () => {
 
         }
     }
-    const deleteResult = (e, id) => {
+
+    // when click "trash icon" to delete vocabulary item
+    const handleDelete = (e, id) => {
         e.preventDefault()
         const obj = existingEntries.filter(item => item.id != id)
         localStorage.setItem("allEntries", JSON.stringify(obj));
         setResults(results.filter((item) => item.id != id))
+    }
+
+    // when click "edit icon" to edit vocabulary item
+    const handleEdit = () => {
+        setIsEditing(true)
     }
 
     const handleKeyDown = (event) => {
@@ -103,20 +112,18 @@ const InputForm = () => {
                 existingEntries !== [] ? (
                     <Result>
                         {existingEntries.map(item => (
-                            <Row key={item.id}>
-                                <Left>{item.word}</Left>
-                                <Right>{item.translation}</Right>
-                                <Icons>
-                                    <FiEdit style={{ marginRight: "20px", cursor: "pointer", color: "#8E3FFF" }} />
-                                    <AiOutlineDelete style={{ cursor: "pointer", color: "#8E3FFF" }} onClick={(e) => deleteResult(e, item.id)} />
-                                </Icons>
-                            </Row>
+
+                            <VocabularyItem
+                                item={item}
+                                handleEdit={handleEdit}
+                                handleDelete={handleDelete}
+                            />
                         ))
                         }
                     </Result>
                 ) : null
             }
-            { existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
+            {existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
         </Wrapper >
 
     )
