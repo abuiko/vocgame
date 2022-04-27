@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
     min-height: 100vh;
     padding-bottom: 50px;
     box-sizing: border-box;
-    
 `
 
 export const Nav = styled.div`

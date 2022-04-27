@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import VocabularyItem from './VocabularyItem'
-import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Form, Text, Button, Result, Submit } from './InputElements'
+import AddVocabulary from './AddVocabulary'
+import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Result, Submit } from './InputElements'
 import LogoImg from '../../assets/logo.png'
 import RulesDesc from './Rules'
 
@@ -84,28 +85,15 @@ const InputForm = () => {
             </Nav>
             <Container>
                 <Desc>Fill out word and traslation fields below, press ADD button to add to vocabulary. Then press START GAME to proceed.</Desc>
-                <Form>
-                    <Text
-                        type="text"
-                        name="word"
-                        value={word}
-                        id="word"
-                        onChange={(e) => handleText(e)}
-                        onKeyDown={handleKeyDown}
-                        placeholder="Word"
-                        required />
-                    <Text
-                        type="text"
-                        name="translation"
-                        value={translation}
-                        id="translation"
-                        onChange={(e) => handleTranslation(e)}
-                        onKeyDown={handleKeyDown}
-                        placeholder="Translation"
-                        required />
-                    <Button onClick={addResult}>Add</Button>
-                </Form>
 
+                <AddVocabulary
+                    word={word}
+                    translation={translation}
+                    handleKeyDown={handleKeyDown}
+                    handleText={handleText}
+                    handleTranslation={handleTranslation}
+                    addResult={addResult}
+                />
 
             </Container>
             {
