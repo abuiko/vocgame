@@ -49,22 +49,6 @@ const Wrapper = styled.div`
     padding: 20px 55px;
     
 `
-// const Title = styled.h2`
-//     color: #fff;
-//     font-size: 32px;
-//     margin-bottom: 30px;
-//     font-weight: normal;
-
-// `
-// const Desc = styled.p`
-//     color: #fff;
-//     margin-bottom: 40px;
-//     text-align: center;
-//     line-height: 29px;
-//     font-size: 19px;
-
-// `
-
 const Desc = styled.img`
    width: 100%;
    height: 100%;

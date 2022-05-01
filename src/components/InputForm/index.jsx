@@ -10,28 +10,42 @@ import LogoImg from '../../assets/logo.png'
 
 
 const InputForm = () => {
-    const [word, setWord] = useState("")
-    const [translation, setTranslation] = useState("")
-    const [results, setResults] = useState([])
+
+    const [text, setText] = useState({
+        word: "",
+        translation: ""
+    })
+
+    // vocabulary list
+    const [vocabulary, setVocabulary] = useState([])
 
     // editing vocabulary
     const [isEditing, setIsEditing] = useState(false)
     const [edited, setEdited] = useState({})
-
-    // rules component
+    console.log(edited)
+    // RULES COMPONENT
     const [isOpen, setIsOpen] = useState(false)
-
     // to open rules component
     const handleRules = () => {
         setIsOpen(!isOpen)
     }
 
+    // add text / translation to "text" object
     const handleText = (e) => {
-        setWord(e.target.value);
+
+        setText(prevState => ({
+            ...prevState,
+            word: e.target.value
+        }))
     };
+
     const handleTranslation = (e) => {
-        setTranslation(e.target.value);
+        setText(prevState => ({
+            ...prevState,
+            translation: e.target.value
+        }))
     };
+
 
     function handleEditText(e) {
         setEdited({ ...edited, text: e.target.value });
@@ -43,15 +57,15 @@ const InputForm = () => {
     // local storage
     let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
 
-    const addResult = () => {
+    const addToVocabulary = () => {
 
-        if (word !== "" && translation !== "") {
+        if (text.word !== "" && text.translation !== "") {
             if (existingEntries == null) existingEntries = [];
 
             const obj = {
                 id: Math.floor(Math.random() * 1000),
-                word: word,
-                translation: translation,
+                word: text.word,
+                translation: text.translation,
                 position: Math.floor(Math.random() * 80)
             };
             localStorage.setItem("entry", JSON.stringify(obj));
@@ -59,18 +73,28 @@ const InputForm = () => {
             existingEntries.push(obj);
             localStorage.setItem("allEntries", JSON.stringify(existingEntries));
 
-            setResults([...results, obj]);
-            setWord("")
-            setTranslation("")
+            setVocabulary([...vocabulary, obj]);
+            setText(prevState => ({
+                ...prevState,
+                word: "",
+                translation: ""
+            }))
         }
     }
+
+    // const editVocabulary = () => {
+
+    //     const listItem = existingEntries.filter(item => item.id === edited.id)
+    //     console.log(listItem)
+
+    // }
 
     // when click "trash icon" to delete vocabulary item
     const handleDelete = (e, id) => {
         e.preventDefault()
         const obj = existingEntries.filter(item => item.id != id)
         localStorage.setItem("allEntries", JSON.stringify(obj));
-        setResults(results.filter((item) => item.id != id))
+        setVocabulary(vocabulary.filter((item) => item.id != id))
     }
 
     // when click "edit icon" to edit vocabulary item
@@ -80,24 +104,9 @@ const InputForm = () => {
         setEdited({ ...edited, id: item.id, text: item.word, translation: item.translation })
     }
 
-    // const addEditedResult = (e) => {
-    //     e.preventDefault()
-
-    //     handleEdited(edited.id, edited)
-    // }
-
-    // const handleEdited = (id, updatedItem) => {
-    //     const updatedVoc = results.map(result => {
-    //         return result.id === id ? updatedItem : result
-    //     })
-    //     setIsEditing(false)
-    //     setResults(updatedVoc)
-    // }
-
-
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            addResult()
+            addToVocabulary()
         }
     }
 
@@ -119,16 +128,17 @@ const InputForm = () => {
                         handleKeyDown={handleKeyDown}
                         handleEditText={handleEditText}
                         handleEditTranslation={handleEditTranslation}
+                    // editVocabulary={editVocabulary}
 
                     />
                 ) : (
                         <AddVocabulary
-                            word={word}
-                            translation={translation}
+                            word={text.word}
+                            translation={text.translation}
                             handleKeyDown={handleKeyDown}
                             handleText={handleText}
                             handleTranslation={handleTranslation}
-                            addResult={addResult}
+                            addToVocabulary={addToVocabulary}
                         />
                     )}
             </Container>

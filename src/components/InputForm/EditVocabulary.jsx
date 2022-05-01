@@ -1,6 +1,6 @@
 import { Form, Text, Button } from './InputElements'
 
-const EditVocabulary = ({ word, translation, handleKeyDown, handleEditText, handleEditTranslation, addResult }) => {
+const EditVocabulary = ({ word, translation, handleKeyDown, handleEditText, handleEditTranslation }) => {
     return (
         <Form>
             <Text
@@ -21,7 +21,7 @@ const EditVocabulary = ({ word, translation, handleKeyDown, handleEditText, hand
                 onKeyDown={handleKeyDown}
                 placeholder="Translation"
                 required />
-            <Button onClick={addResult}>Edit</Button>
+            <Button>Edit</Button>
         </Form>
     )
 }
