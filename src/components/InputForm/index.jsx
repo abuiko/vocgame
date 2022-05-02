@@ -22,7 +22,7 @@ const InputForm = () => {
     // editing vocabulary
     const [isEditing, setIsEditing] = useState(false)
     const [edited, setEdited] = useState({})
-    console.log(edited)
+
     // RULES COMPONENT
     const [isOpen, setIsOpen] = useState(false)
     // to open rules component
@@ -82,12 +82,11 @@ const InputForm = () => {
         }
     }
 
-    // const editVocabulary = () => {
+    const editVocabulary = () => {
 
-    //     const listItem = existingEntries.filter(item => item.id === edited.id)
-    //     console.log(listItem)
+        console.log('editing')
 
-    // }
+    }
 
     // when click "trash icon" to delete vocabulary item
     const handleDelete = (e, id) => {
@@ -105,8 +104,10 @@ const InputForm = () => {
     }
 
     const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
+        if (event.key === 'Enter' && !isEditing) {
             addToVocabulary()
+        } else if (event.key === 'Enter' && isEditing) {
+            editVocabulary()
         }
     }
 
@@ -128,7 +129,7 @@ const InputForm = () => {
                         handleKeyDown={handleKeyDown}
                         handleEditText={handleEditText}
                         handleEditTranslation={handleEditTranslation}
-                    // editVocabulary={editVocabulary}
+                        editVocabulary={editVocabulary}
 
                     />
                 ) : (
