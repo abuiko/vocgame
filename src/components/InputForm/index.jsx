@@ -84,9 +84,16 @@ const InputForm = () => {
 
     const editVocabulary = () => {
 
-        console.log('editing')
-
+        for (let i = 0; i < existingEntries.length; i++) {
+            if (existingEntries[i].id === edited.id) {
+                existingEntries.splice(existingEntries[i], 1, edited)
+                console.log(existingEntries)
+                // existingEntries[i].word = edited.text && existingEntries[i].translation = edited.translation
+            }
+        }
+        return existingEntries
     }
+
 
     // when click "trash icon" to delete vocabulary item
     const handleDelete = (e, id) => {
