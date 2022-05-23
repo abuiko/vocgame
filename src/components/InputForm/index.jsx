@@ -1,44 +1,39 @@
 import React, { useState } from 'react'
-
 import VocabularyItem from './VocabularyItem'
 import AddVocabulary from './AddVocabulary'
-import EditVocabulary from './EditVocabulary'
 import RulesDesc from './Rules'
-
 import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Result, Submit } from './InputElements'
 import LogoImg from '../../assets/logo.png'
 
 
 const InputForm = () => {
 
+    // INPUT VALUES (WORD / TRANSLATION)
     const [text, setText] = useState({
         word: "",
         translation: ""
     })
 
-    // vocabulary list
+    // VOCABULARY AFTER ADDING TO THE LOCAL STORAGE
     const [vocabulary, setVocabulary] = useState([])
 
-    // editing vocabulary
-    const [isEditing, setIsEditing] = useState(false)
-    const [edited, setEdited] = useState({})
-
-    // RULES COMPONENT
+    // RULES LINK
     const [isOpen, setIsOpen] = useState(false)
-    // to open rules component
+
+    // HANDLE RULES LINK
     const handleRules = () => {
         setIsOpen(!isOpen)
     }
 
-    // add text / translation to "text" object
+    // ADD WORD INPUT VALUE
     const handleText = (e) => {
-
         setText(prevState => ({
             ...prevState,
             word: e.target.value
         }))
     };
 
+    // ADD TRANSLATION INPUT VALUE
     const handleTranslation = (e) => {
         setText(prevState => ({
             ...prevState,
@@ -46,15 +41,7 @@ const InputForm = () => {
         }))
     };
 
-
-    function handleEditText(e) {
-        setEdited({ ...edited, text: e.target.value });
-    }
-    function handleEditTranslation(e) {
-        setEdited({ ...edited, translation: e.target.value });
-    }
-
-    // local storage
+    // GET FROM LOCAL STORAGE
     let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
 
     const addToVocabulary = () => {
@@ -68,6 +55,8 @@ const InputForm = () => {
                 translation: text.translation,
                 position: Math.floor(Math.random() * 80)
             };
+
+            // ADD TO LOCAL STORAGE
             localStorage.setItem("entry", JSON.stringify(obj));
             // Save allEntries back to local storage
             existingEntries.push(obj);
@@ -82,20 +71,7 @@ const InputForm = () => {
         }
     }
 
-    const editVocabulary = () => {
-
-        for (let i = 0; i < existingEntries.length; i++) {
-            if (existingEntries[i].id === edited.id) {
-                existingEntries.splice(existingEntries[i], 1, edited)
-                console.log(existingEntries)
-                // existingEntries[i].word = edited.text && existingEntries[i].translation = edited.translation
-            }
-        }
-        return existingEntries
-    }
-
-
-    // when click "trash icon" to delete vocabulary item
+    // DELETE ITEM WHEN CLICK TRASH ICON
     const handleDelete = (e, id) => {
         e.preventDefault()
         const obj = existingEntries.filter(item => item.id != id)
@@ -103,18 +79,10 @@ const InputForm = () => {
         setVocabulary(vocabulary.filter((item) => item.id != id))
     }
 
-    // when click "edit icon" to edit vocabulary item
-    const handleEdit = (e, item) => {
-
-        setIsEditing(true)
-        setEdited({ ...edited, id: item.id, text: item.word, translation: item.translation })
-    }
-
+    // ADD TO VOCABULARY WHEN PUSH ENTER
     const handleKeyDown = (event) => {
-        if (event.key === 'Enter' && !isEditing) {
+        if (event.key === 'Enter') {
             addToVocabulary()
-        } else if (event.key === 'Enter' && isEditing) {
-            editVocabulary()
         }
     }
 
@@ -125,30 +93,20 @@ const InputForm = () => {
                 <Logo>
                     <Img src={LogoImg} alt="logo" />
                 </Logo>
-                <Rules onClick={() => handleRules()}>Rules</Rules>
+                <Rules onClick={handleRules}>Rules</Rules>
             </Nav>
             <Container>
                 <Desc>Fill out word and traslation fields below, press ADD button to add to vocabulary. Then press START GAME to proceed.</Desc>
-                {isEditing ? (
-                    <EditVocabulary
-                        word={edited.text}
-                        translation={edited.translation}
-                        handleKeyDown={handleKeyDown}
-                        handleEditText={handleEditText}
-                        handleEditTranslation={handleEditTranslation}
-                        editVocabulary={editVocabulary}
 
-                    />
-                ) : (
-                        <AddVocabulary
-                            word={text.word}
-                            translation={text.translation}
-                            handleKeyDown={handleKeyDown}
-                            handleText={handleText}
-                            handleTranslation={handleTranslation}
-                            addToVocabulary={addToVocabulary}
-                        />
-                    )}
+                <AddVocabulary
+                    word={text.word}
+                    translation={text.translation}
+                    handleKeyDown={handleKeyDown}
+                    handleText={handleText}
+                    handleTranslation={handleTranslation}
+                    addToVocabulary={addToVocabulary}
+                />
+
             </Container>
             {
                 existingEntries !== [] ? (
@@ -158,7 +116,6 @@ const InputForm = () => {
                             <VocabularyItem
                                 key={item.id}
                                 item={item}
-                                handleEdit={handleEdit}
                                 handleDelete={handleDelete}
                             />
                         ))
@@ -166,7 +123,7 @@ const InputForm = () => {
                     </Result>
                 ) : null
             }
-            {existingEntries.length > 0 && !isEditing ? <Submit to="/game">START</Submit> : null}
+            {existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
         </Wrapper >
 
     )
