@@ -95,6 +95,7 @@ const InputForm = () => {
                 </Logo>
                 <Rules onClick={handleRules}>Rules</Rules>
             </Nav>
+
             <Container>
                 <Desc>Fill out word and traslation fields below, press ADD button to add to vocabulary. Then press START GAME to proceed.</Desc>
 

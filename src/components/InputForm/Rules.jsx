@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { keyframes } from 'styled-components'
 import { ImCross } from 'react-icons/im'
-import RulesImg from '../../assets/rules.png'
+import Rule1 from '../../assets/rule1.png'
+import Rule2 from '../../assets/rule2.png'
 
 
 const fadeInAnimation = keyframes`
@@ -49,12 +50,21 @@ const Wrapper = styled.div`
     padding: 20px 55px;
     
 `
-const Desc = styled.img`
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
+const Header = styled.h2`
+    font-size: 2.5rem;
+    color: #fff;
+`
+const Desc = styled.p`
+   text-align: center;
+   color: #fff; 
+   padding: 2rem 0rem; 
+`
+const Rule = styled.img`
+    width: 100%;
+    object-fit: cover;
     
 `
+
 const IconWrap = styled.div`
     position: absolute;
     top: 5%;
@@ -78,12 +88,21 @@ const Rules = (props) => {
     return (
         <Overlay>
             <Wrapper>
-
-                <Desc src={RulesImg} alt="rules to the game" />
+                <Header>Rules</Header>
+                <Desc>
+                    Fill in word and its translation, then press ADD to
+                    add them to the vocabulary When the vocabulary is created,
+                    press START GAME to proceed
+                </Desc>
+                <Rule src={Rule1} alt="rule desc" />
+                <Desc>
+                    Your goal is to destroy all falling asteroids before they hit the ground by typing the translation to the words, one at a time.
+                    Type, then hit ENTER.  If it’s NOT correct,  asteroid will keep falling,
+               </Desc>
+                <Rule src={Rule2} alt="rule desc" />
                 <IconWrap onClick={() => props.handleRules()}>
                     <Icon />
                 </IconWrap>
-
             </Wrapper>
         </Overlay>
     )
