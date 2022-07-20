@@ -41,17 +41,7 @@ export const Container = styled.div`
    
     
 `
-export const Desc = styled.p`
-    width: 90%;
-    color: #fff;
-    font-size: 17px;
-    margin: 0px auto 40px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 1.3px;
-    font-family:  'Kodchasan', sans-serif;
-    font-weight: 500;
-`
+
 export const Form = styled.div`
     
     background: rgba(0,0,0,0.5);
