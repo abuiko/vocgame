@@ -21,7 +21,7 @@ const AddVocabulary = ({ word, translation, handleKeyDown, handleText, handleTra
                 onKeyDown={handleKeyDown}
                 placeholder="Translation"
                 required />
-            <Button onClick={addToVocabulary}>Add</Button>
+            <Button onClick={addToVocabulary}>Add To Vocabulary</Button>
         </Form>
     )
 }

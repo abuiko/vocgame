@@ -89,12 +89,12 @@ const InputForm = () => {
     return (
         <Wrapper>
             {isOpen ? <RulesDesc handleRules={handleRules} /> : ""}
-            <Nav>
+            {/* <Nav>
                 <Logo>
                     <Img src={LogoImg} alt="logo" />
                 </Logo>
                 <Rules onClick={handleRules}>Rules</Rules>
-            </Nav>
+            </Nav> */}
 
             <Container>
 
@@ -109,22 +109,25 @@ const InputForm = () => {
                 />
 
             </Container>
-            {
-                existingEntries !== [] ? (
-                    <Result>
-                        {existingEntries.map(item => (
+            <Container>
+                {
+                    existingEntries !== [] ? (
+                        <Result>
+                            {existingEntries.map(item => (
 
-                            <VocabularyItem
-                                key={item.id}
-                                item={item}
-                                handleDelete={handleDelete}
-                            />
-                        ))
-                        }
-                    </Result>
-                ) : null
-            }
-            {existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
+                                <VocabularyItem
+                                    key={item.id}
+                                    item={item}
+                                    handleDelete={handleDelete}
+                                />
+                            ))
+                            }
+                        </Result>
+                    ) : null
+                }
+                {existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
+            </Container>
+
         </Wrapper >
 
     )

@@ -12,6 +12,8 @@ export const Wrapper = styled.div`
     min-height: 100vh;
     padding-bottom: 50px;
     box-sizing: border-box;
+    width: 100%;
+    display: flex;
 `
 
 export const Nav = styled.div`
@@ -34,28 +36,26 @@ export const Rules = styled.p`
 `
 
 export const Container = styled.div`
-    padding-top: 70px;
-    max-width: 850px;
-    margin: auto;
-    padding-bottom: 20px;
-   
+    padding-top: 90px;
+    
+    // margin: auto;
+    padding-bottom: 20px; 
     
 `
 
 export const Form = styled.div`
     
-    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
     border: none;
     border-radius: 10px;
     padding: 50px 35px;
     box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 450px;
+   
 `
 export const Text = styled.input`
-    margin-right: 10px;
+    margin-bottom: 1rem;
     padding: 10px;
     flex: 1;
     border: none;
@@ -66,13 +66,14 @@ export const Text = styled.input`
 `
 
 export const Button = styled.button`
-    width: 120px;
+    
     padding: 10px;
-    border: 1px solid #8E3FFF;
-    color: white;
+    
+    color: #F7FF9B;
     font-size: 16px;
-    background: rgb(142,63,255);
-    background: linear-gradient(48deg, rgba(142,63,255,1) 34%, rgba(0,219,255,1) 190%);
+    font-weight: 500;
+    border: 1px solid #F7FF9B;
+    background: transparent;
     cursor: pointer;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
