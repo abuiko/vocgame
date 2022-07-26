@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import VocabularyItem from './VocabularyItem'
 import AddVocabulary from './AddVocabulary'
 import RulesDesc from './Rules'
-import { Wrapper, Nav, Logo, Img, Rules, Container, Desc, Result, Submit } from './InputElements'
+import { Wrapper, Nav, Logo, Img, Rules, Container, Vocabulary, Desc, Result, Submit } from './InputElements'
 import LogoImg from '../../assets/logo.png'
 
 
@@ -109,7 +109,7 @@ const InputForm = () => {
                 />
 
             </Container>
-            <Container>
+            <Vocabulary>
                 {
                     existingEntries !== [] ? (
                         <Result>
@@ -126,7 +126,7 @@ const InputForm = () => {
                     ) : null
                 }
                 {existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
-            </Container>
+            </Vocabulary>
 
         </Wrapper >
 

@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
     background-repeat: no-repeat;
     background-position: center; 
     min-height: 100vh;
-    padding-bottom: 50px;
     box-sizing: border-box;
     width: 100%;
     display: flex;
@@ -37,9 +36,15 @@ export const Rules = styled.p`
 
 export const Container = styled.div`
     padding-top: 90px;
-    
-    // margin: auto;
+    width: 600px;
     padding-bottom: 20px; 
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+`
+
+export const Vocabulary = styled.div`
     
 `
 
@@ -66,9 +71,7 @@ export const Text = styled.input`
 `
 
 export const Button = styled.button`
-    
     padding: 10px;
-    
     color: #F7FF9B;
     font-size: 16px;
     font-weight: 500;
