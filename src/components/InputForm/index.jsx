@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import VocabularyItem from './VocabularyItem'
 import AddVocabulary from './AddVocabulary'
 import RulesDesc from './Rules'
-import { Wrapper, Nav, Logo, Img, Rules, Container, Vocabulary, Desc, Result, Submit } from './InputElements'
-import LogoImg from '../../assets/logo.png'
-
+import { Wrapper, Rules, Container, Vocabulary, Result, Submit } from './InputElements'
 
 const InputForm = () => {
 
@@ -89,16 +87,8 @@ const InputForm = () => {
     return (
         <Wrapper>
             {isOpen ? <RulesDesc handleRules={handleRules} /> : ""}
-            {/* <Nav>
-                <Logo>
-                    <Img src={LogoImg} alt="logo" />
-                </Logo>
-                <Rules onClick={handleRules}>Rules</Rules>
-            </Nav> */}
 
             <Container>
-
-
                 <AddVocabulary
                     word={text.word}
                     translation={text.translation}
@@ -107,7 +97,7 @@ const InputForm = () => {
                     handleTranslation={handleTranslation}
                     addToVocabulary={addToVocabulary}
                 />
-
+                <Rules onClick={handleRules}>Click here to see the rules</Rules>
             </Container>
             <Vocabulary>
                 {
@@ -127,7 +117,6 @@ const InputForm = () => {
                 }
                 {existingEntries.length > 0 ? <Submit to="/game">START</Submit> : null}
             </Vocabulary>
-
         </Wrapper >
 
     )

@@ -1,4 +1,3 @@
-
 import styled from 'styled-components'
 import image from '../../assets/bg.jpg'
 import { Link } from 'react-router-dom'
@@ -15,33 +14,32 @@ export const Wrapper = styled.div`
     display: flex;
 `
 
-export const Nav = styled.div`
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 60px;
+export const Logo = styled.div`
+    margin-bottom: 2rem;
+    text-align: center;
 `
-
-export const Logo = styled.div``
 export const Img = styled.img`
-    width: 200px;
+    width: 250px;
 `
 export const Rules = styled.p`
-    color: #fff;
+    position: absolute;
+    bottom: 2%;
+    color: #D4C4F5;
     font-family: 'Kodchasan', sans-serif;
-    font-size: 19px;
+    font-size: 13px;
     cursor: pointer;
+    text-decoration: underline;
 `
 
 export const Container = styled.div`
     padding-top: 90px;
     width: 600px;
     padding-bottom: 20px; 
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     display: flex;
     justify-content: center;
     align-items: center; 
+    position: relative;
 `
 
 export const Vocabulary = styled.div`
@@ -49,7 +47,6 @@ export const Vocabulary = styled.div`
 `
 
 export const Form = styled.div`
-    
     display: flex;
     flex-direction: column;
     border: none;
@@ -61,7 +58,7 @@ export const Form = styled.div`
 `
 export const Text = styled.input`
     margin-bottom: 1rem;
-    padding: 10px;
+    padding: 15px;
     flex: 1;
     border: none;
     outline: none;
@@ -71,11 +68,11 @@ export const Text = styled.input`
 `
 
 export const Button = styled.button`
-    padding: 10px;
-    color: #F7FF9B;
+    padding: 15px;
+    color: #D4C4F5;
     font-size: 16px;
     font-weight: 500;
-    border: 1px solid #F7FF9B;
+    border: 1px solid #D4C4F5;
     background: transparent;
     cursor: pointer;
     border-radius: 3px;
@@ -89,7 +86,7 @@ export const Button = styled.button`
 `
 
 export const Result = styled.div`
-    max-width: 1200px;
+    
     display: flex;
     margin: 20px auto;
     padding: 0px 20px;
@@ -104,7 +101,7 @@ export const Result = styled.div`
 `
 
 export const Row = styled.div`
-    width: 49%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
