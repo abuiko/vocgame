@@ -3,6 +3,7 @@ import image from '../../assets/bg.jpg'
 import { Link } from 'react-router-dom'
 import { device } from '../responsive'
 
+// parent container
 export const Wrapper = styled.div`
     background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url(${image});
     background-size: cover;
@@ -14,9 +15,10 @@ export const Wrapper = styled.div`
     display: flex;
 `
 
+// left column 
 export const Container = styled.div`
     padding: 50px 0px 20px;
-    width: 600px;
+    width: 30%;
     background: rgba(0,0,0,0.7);
     display: flex;
     flex-direction: column;
@@ -32,18 +34,12 @@ export const Img = styled.img`
     width: 250px;
 `
 export const Rules = styled.p`
-    
     color: #D4C4F5;
     font-family: 'Kodchasan', sans-serif;
     font-size: 13px;
     cursor: pointer;
     text-decoration: underline;
 `
-
-export const Vocabulary = styled.div`
-    
-`
-
 export const Form = styled.div`
     display: flex;
     flex-direction: column;
@@ -51,8 +47,7 @@ export const Form = styled.div`
     border-radius: 10px;
     padding: 50px 35px;
     box-sizing: border-box;
-    width: 450px;
-   
+    width: 450px; 
 `
 export const Text = styled.input`
     margin-bottom: 1rem;
@@ -64,7 +59,6 @@ export const Text = styled.input`
     background: rgba(255,255,255,0.8);
     border-radius: 3px;
 `
-
 export const Button = styled.button`
     padding: 15px;
     color: #D4C4F5;
@@ -83,8 +77,14 @@ export const Button = styled.button`
     }
 `
 
+
+// right column
+export const Vocabulary = styled.div`
+    width: 70%;
+`
+
 export const Result = styled.div`
-    
+    width: 100%;
     display: flex;
     margin: 20px auto;
     padding: 0px 20px;
@@ -92,10 +92,8 @@ export const Result = styled.div`
     box-sizing: border-box;
 
     @media screen and ${device.laptop} {
-        
         padding: 0px 10px;
     }
-
 `
 
 export const Row = styled.div`
