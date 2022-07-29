@@ -1,12 +1,10 @@
-import { Form, Text, Button, Logo, Img } from './InputElements'
-import LogoImg from '../../assets/logo.png'
+import { Form, Text, Button, } from './InputElements'
+
 
 const AddVocabulary = ({ word, translation, handleKeyDown, handleText, handleTranslation, addToVocabulary }) => {
     return (
         <Form>
-            <Logo>
-                <Img src={LogoImg} alt="logo" />
-            </Logo>
+
             <Text
                 type="text"
                 name="word"

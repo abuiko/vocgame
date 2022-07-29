@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import VocabularyItem from './VocabularyItem'
 import AddVocabulary from './AddVocabulary'
 import RulesDesc from './Rules'
-import { Wrapper, Rules, Container, Vocabulary, Result, Submit } from './InputElements'
+import LogoImg from '../../assets/logo.png'
+import { Wrapper, Rules, Container, Vocabulary, Result, Submit, Logo, Img } from './InputElements'
 
 const InputForm = () => {
 
@@ -89,6 +90,9 @@ const InputForm = () => {
             {isOpen ? <RulesDesc handleRules={handleRules} /> : ""}
 
             <Container>
+                <Logo>
+                    <Img src={LogoImg} alt="logo" />
+                </Logo>
                 <AddVocabulary
                     word={text.word}
                     translation={text.translation}

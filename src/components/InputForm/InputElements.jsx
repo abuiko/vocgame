@@ -14,6 +14,16 @@ export const Wrapper = styled.div`
     display: flex;
 `
 
+export const Container = styled.div`
+    padding: 50px 0px 20px;
+    width: 600px;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
+`
+
 export const Logo = styled.div`
     margin-bottom: 2rem;
     text-align: center;
@@ -22,24 +32,12 @@ export const Img = styled.img`
     width: 250px;
 `
 export const Rules = styled.p`
-    position: absolute;
-    bottom: 2%;
+    
     color: #D4C4F5;
     font-family: 'Kodchasan', sans-serif;
     font-size: 13px;
     cursor: pointer;
     text-decoration: underline;
-`
-
-export const Container = styled.div`
-    padding-top: 90px;
-    width: 600px;
-    padding-bottom: 20px; 
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    position: relative;
 `
 
 export const Vocabulary = styled.div`
