@@ -97,7 +97,7 @@ export const Result = styled.div`
 `
 
 export const Row = styled.div`
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
